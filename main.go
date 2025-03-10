@@ -11,6 +11,19 @@ import (
 	"time"
 )
 
+////// add by milky /////////
+// ฟังก์ชันใช้ RAM โดยการสร้าง Array ขนาดใหญ่
+func consumeRAM(sizeMB int) {
+	size := sizeMB * 1024 * 1024 / 8 // แปลงเป็นจำนวน element ของ int64
+	mem := make([]int64, size)
+	for i := range mem {
+		mem[i] = int64(i)
+	}
+	fmt.Printf("Allocated %d MB of RAM\n", sizeMB)
+}
+
+////// add by milky /////////
+
 func main() {
 	cpuUsagePtr := flag.Float64("cpu", 0.2, "CPU usage as a fraction (e.g., 0.2 for 20% CPU usage)")
 	durationPtr := flag.Duration("duration", 10*time.Second, "Duration for the CPU stress (e.g., 10s)")
